@@ -1,7 +1,7 @@
 #!/usr/local/bin/python3
 # -*- coding: utf-8 -*-
 
-from neo4j import GraphDatabase
+from neo4j.v1 import GraphDatabase
 
 driver = GraphDatabase.driver("bolt://localhost:7687", auth=("neo4j", "password"))
 

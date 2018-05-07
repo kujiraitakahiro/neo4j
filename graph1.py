@@ -7,10 +7,10 @@ driver = GraphDatabase.driver("bolt://localhost:7687", auth=("neo4j", "password"
 
 def print_name(tx, name):
     for record in tx.run("MATCH (a:Person)-[:ACTED_IN]->(movie) WHERE a.name = $name "
-                         "RETURN movie.name ORDER BY movie.name", name=name):
-        print(record["movie.name"])
+                         "RETURN a.name ORDER BY a.name", name=name):
+        print(record["a.name"])
 
 with driver.session() as session:
-    session.read_transaction(print_name, "The Matrix")
+    session.read_transaction(print_name, "Tom Hanks")
 
 

@@ -11,6 +11,6 @@ def print_name(tx, name):
         print(record["a.name"])
 
 with driver.session() as session:
-    session.read_transaction(print_name, "Tom Hanks")
+    session.read_transaction(print_name, "Keanu Reeves")
 
 
